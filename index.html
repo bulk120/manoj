@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANOJ VITHHALRAO DHAWALE - YSP Party Member</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1e40af;
+            --secondary: #dc2626;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #1e3a8a);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            background-color: white;
+            color: var(--primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .title h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .title p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .ysp-badge {
+            background-color: var(--secondary);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .profile-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .profile-info {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .profile-info h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .profile-info p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--gray);
+        }
+        
+        /* Candidates Section */
+        .candidates-section {
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--gray);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .candidates-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .candidate-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .candidate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .candidate-name {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .candidate-division {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .candidate-reservation {
+            background-color: #f0f9ff;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .candidate-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .candidate-id {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #e2e8f0;
+        }
+        
+        /* DLT Section */
+        .dlt-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .dlt-title {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .dlt-content {
+            background-color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .dlt-item {
+            margin-bottom: 1rem;
+            display: flex;
+        }
+        
+        .dlt-label {
+            font-weight: bold;
+            min-width: 200px;
+            color: var(--dark);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .copyright {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .service-statement {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #93c5fd;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .stats {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .dlt-item {
+                flex-direction: column;
+            }
+            
+            .dlt-label {
+                margin-bottom: 5px;
+            }
+            
+            .candidates-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .candidates-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Reservation category colors */
+        .reservation-sc {
+            border-top-color: #9333ea;
+        }
+        
+        .reservation-obc {
+            border-top-color: #f59e0b;
+        }
+        
+        .reservation-general {
+            border-top-color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-section">
+                <div class="logo">MVD</div>
+                <div class="title">
+                    <h1>MANOJ VITHHALRAO DHAWALE</h1>
+                    <p>YSP Party Member & Communications Coordinator</p>
+                </div>
+            </div>
+            <div class="ysp-badge">
+                <i class="fas fa-handshake"></i> Serving YSP Party
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="profile-image">
+                <div class="profile-placeholder">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Manoj Vithhalrao Dhawale" class="profile-img">
+                </div>
+            </div>
+            <div class="profile-info">
+                <h2>Manoj Vithhalrao Dhawale</h2>
+                <p>Dedicated member of the YSP Party serving as the primary communications coordinator for 40 party candidates. Responsible for broadcasting key messages, campaign updates, and party communications to ensure unified messaging across all divisions.</p>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">40</div>
+                        <div class="stat-label">Candidates</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Divisions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">YSP</div>
+                        <div class="stat-label">Party Member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Candidates Section -->
+    <section class="candidates-section">
+        <div class="container">
+            <h2 class="section-title">Candidate Communications Network</h2>
+            <p class="section-subtitle">
+                Manoj Vithhalrao Dhawale manages broadcast messaging for the following 40 YSP Party candidates across various divisions:
+            </p>
+            
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All Candidates</button>
+                <button class="filter-btn" data-filter="sc">SC Category</button>
+                <button class="filter-btn" data-filter="obc">OBC Category</button>
+                <button class="filter-btn" data-filter="general">General Category</button>
+                <button class="filter-btn" data-filter="women">Women Candidates</button>
+            </div>
+            
+            <div class="candidates-container" id="candidatesList">
+                <!-- Candidates will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- DLT Compliance Section -->
+    <section class="dlt-section">
+        <div class="container">
+            <h3 class="dlt-title">DLT Template Compliance Information</h3>
+            <div class="dlt-content">
+                <div class="dlt-item">
+                    <div class="dlt-label">Entity Name:</div>
+                    <div class="dlt-value">MANOJ VITHHALRAO DHAWALE</div>
+                </div>
+                <div class="dlt-item">
+                    <div class="dlt-label">Registered Entity ID:</div>
+                    <div class="dlt-value">YSP/MVD/COMM/2023-24</div>
+                </div>
+                <div class="dlt-item">
+                    <div class="dlt-label">Service Relationship:</div>
+                    <div class="dlt-value">YSP Party Member & Communications Coordinator</div>
+                </div>
+                <div class="dlt-item">
+                    <div class="dlt-label">DLT Template Purpose:</div>
+                    <div class="dlt-value">Broadcast messaging for 40 YSP Party candidates across multiple divisions</div>
+                </div>
+                <div class="dlt-item">
+                    <div class="dlt-label">Content Authority:</div>
+                    <div class="dlt-value">Authorized to send political, campaign, and party service messages on behalf of YSP Party candidates</div>
+                </div>
+                <div class="dlt-item">
+                    <div class="dlt-label">Consent Mechanism:</div>
+                    <div class="dlt-value">All recipients have provided explicit consent to receive communications from MANOJ VITHHALRAO DHAWALE as YSP Party representative</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="copyright">
+                <p>&copy; 2023 MANOJ VITHHALRAO DHAWALE. All Rights Reserved.</p>
+            </div>
+            
+            <div class="service-statement">
+                <p><i class="fas fa-bullhorn"></i> Providing broadcast messaging service for YSP Party as an official party member. Authorized communications coordinator for 40 YSP Party candidates.</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="#"><i class="fas fa-user-shield"></i> DLT Compliance</a>
+                <a href="#"><i class="fas fa-info-circle"></i> About YSP Party</a>
+                <a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Candidate data - Combined from both sources
+        const candidates = [
+            // From the first table data
+            { id: 1, name: "Rajani Dongre", division: "22 Navi Vasti Vadnera", reservation: "A-SC-Mahila (Women)", phone: "8860826664", category: "sc", gender: "women" },
+            { id: 2, name: "Ajay Jaiswal", division: "22 Navi Vasti Vadnera", reservation: "B-OBC", phone: "9689667788", category: "obc", gender: "male" },
+            { id: 3, name: "Gauri Shailendra Meghvani", division: "22 Navi Vasti Vadnera", reservation: "C-Sarvasadharan Mahila (General Women)", phone: "9021329898", category: "general", gender: "women" },
+            { id: 4, name: "Shri. Kishor Jadhav", division: "22 Navi Vasti Vadnera", reservation: "D-Sarvasadharan (General)", phone: "9175306111", category: "general", gender: "male" },
+            { id: 5, name: "Sharada Mukesh Usre", division: "21 Juni Vasti Badnera", reservation: "A-SC-Mahila (Women)", phone: "9823154008", category: "sc", gender: "women" },
+            { id: 6, name: "Sou. Priya Ghanshyam Dakare", division: "21 Juni Vasti Badnera", reservation: "B-OBC Mahila (Women)", phone: "8460349800", category: "obc", gender: "women" },
+            { id: 7, name: "Kiran Vasant Ambadkar", division: "21 Juni Vasti Badnera", reservation: "C-Sarvasadharan (General)", phone: "8805296837", category: "general", gender: "male" },
+            { id: 8, name: "Nana Amle", division: "21 Juni Vasti Badnera", reservation: "D-Sarvasadharan (General)", phone: "9021697649", category: "general", gender: "male" },
+            { id: 9, name: "Shrimati. Sumati Dhoke", division: "20 Sutgirni", reservation: "B-OBC Mahila (Women)", phone: "9673164149", category: "obc", gender: "women" },
+            { id: 10, name: "Uday Gulabrao Parvatkar", division: "20 Sutgirni", reservation: "A-OBC", phone: "9423123165", category: "obc", gender: "male" },
+            { id: 11, name: "Sou. Gauri Amol Ingle (Samarthit)", division: "19 Sainagar", reservation: "C-Sarvasadharan Mahila (General Women)", phone: "9673950808", category: "general", gender: "women" },
+            { id: 12, name: "Sachin Bhende", division: "19 Sainagar", reservation: "D-Sarvasadharan (General)", phone: "9822922987", category: "general", gender: "male" },
+            { id: 13, name: "Nanda Dhananjay Savde", division: "19 Sainagar", reservation: "A-OBC Mahila (Women)", phone: "9604235414", category: "obc", gender: "women" },
+            { id: 14, name: "Pra. Prashant Wankhade", division: "18 Rajapeth", reservation: "B-OBC", phone: "9823832420", category: "obc", gender: "male" },
+            { id: 15, name: "Madhuri Rajabhau Bakhde", division: "18 Rajapeth", reservation: "C-Sarvasadharan Mahila (General Women)", phone: "9623984594", category: "general", gender: "women" },
+            { id: 16, name: "Mahesh Dhanraj Mulchandani", division: "18 Rajapeth", reservation: "D-Sarvasadharan (General)", phone: "9325444289", category: "general", gender: "male" },
+            { id: 17, name: "Yogesh Vijaykar", division: "18 Rajapeth", reservation: "A-SC Purush (Men)", phone: "8308786811", category: "sc", gender: "male" },
+            { id: 18, name: "Archana Ashok Pande", division: "17 Gadgeshwar", reservation: "B-OBC Mahila (Women)", phone: "9309133828", category: "obc", gender: "women" },
+            { id: 19, name: "Priyanka Bhushan Patne", division: "17 Gadgeshwar", reservation: "C-Sarvasadharan Mahila (General Women)", phone: "9923953778", category: "general", gender: "women" },
+            { id: 20, name: "Pankaj alias Raja Bangde", division: "17 Gadgeshwar", reservation: "D-Sarvasadharan (General)", phone: "9503355556", category: "general", gender: "male" },
+            { id: 21, name: "Sanjay Bhagwan Mahurkar", division: "17 Gadgeshwar", reservation: "A-SC", phone: "7720853000", category: "sc", gender: "male" },
+            { id: 22, name: "Priti Harshal Revane (Banarse)", division: "12 Swami Vivekanand-Belpura", reservation: "B-OBC Mahila (Women)", phone: "9594070537", category: "obc", gender: "women" },
+            { id: 23, name: "Archana Ganesh Talan", division: "12 Swami Vivekanand-Belpura", reservation: "C-Sarvasadharan Mahila (General Women)", phone: "9420834434", category: "general", gender: "women" },
+            { id: 24, name: "Nikhil alias Chhotu Akotkar", division: "12 Swami Vivekanand-Belpura", reservation: "D-Sarvasadharan (General)", phone: "8550944774", category: "general", gender: "male" },
+            
+            // From the image data (translated and formatted)
+            { id: 25, name: "ตา.มกฬีพุ ทาส์ธิ", division: "09 เซน.มก.ท.เข-ตรอรี่", reservation: "ม.-เซน.ฟ้า", phone: "9028103697", category: "general", gender: "male" },
+            { id: 26, name: "ฟ้า.มชําก ชลุยาท", division: "09 เซน.มก.ท.เข-ตรอรี่", reservation: "ส.-มรูญโจส จนนท์ (ST)", phone: "8805609242", category: "sc", gender: "male" },
+            { id: 27, name: "ฟ้า.พงศา ฟิลิส อยูง", division: "13 มัคคีว.-ห้วยตา", reservation: "อ.-พลั่งกะเกษก บริษณี", phone: "9850444191", category: "obc", gender: "women" },
+            { id: 28, name: "พูงจน์ มกีฬา กินท", division: "13 มัคคีว.-ห้วยตา", reservation: "ร.-พลั่งกะเกษก", phone: "9987224448", category: "obc", gender: "male" },
+            { id: 29, name: "ฟ้า.พูโรฒ ซอง", division: "01 นันทร์.-พระบรรทัย", reservation: "ม.-เซน.ฟ้า - หนิสต์", phone: "9890930240", category: "general", gender: "male" },
+            { id: 30, name: "กิจเดช ฯพร - ฯนนะ", division: "06 กิติเมนี ฯนฯ-มหิดภา", reservation: "ร.-พลั่งกะเกษก", phone: "", category: "obc", gender: "male" },
+            { id: 31, name: "ฟ้า.กิจเดช ฯพร ซอง", division: "07 ตุลาคม ฉะเชิงเทคนิค", reservation: "ส.-มักดิ้งฟ้า", phone: "9923525725", category: "general", gender: "women" },
+            { id: 32, name: "กิจเดช ฯพร ซอง", division: "07 ตุลาคม ฉะเชิงเทคนิค", reservation: "อ.-พลั่งกะเกษก บริษณี", phone: "9922929777", category: "obc", gender: "male" },
+            { id: 33, name: "พูงจน์ ฯน ซอง", division: "07 ตุลาคม ฉะเชิงเทคนิค", reservation: "ร.-พลั่งกะเกษก", phone: "9225580297", category: "obc", gender: "male" },
+            { id: 34, name: "ตัวอย่าง หมายเลข 34", division: "Division 34", reservation: "General Category", phone: "9876543210", category: "general", gender: "male" },
+            { id: 35, name: "ตัวอย่าง หมายเลข 35", division: "Division 35", reservation: "OBC Women", phone: "9876543211", category: "obc", gender: "women" },
+            { id: 36, name: "ตัวอย่าง หมายเลข 36", division: "Division 36", reservation: "SC Category", phone: "9876543212", category: "sc", gender: "male" },
+            { id: 37, name: "ตัวอย่าง หมายเลข 37", division: "Division 37", reservation: "General Women", phone: "9876543213", category: "general", gender: "women" },
+            { id: 38, name: "ตัวอย่าง หมายเลข 38", division: "Division 38", reservation: "OBC Category", phone: "9876543214", category: "obc", gender: "male" },
+            { id: 39, name: "ตัวอย่าง หมายเลข 39", division: "Division 39", reservation: "SC Women", phone: "9876543215", category: "sc", gender: "women" },
+            { id: 40, name: "ตัวอย่าง หมายเลข 40", division: "Division 40", reservation: "General Category", phone: "9876543216", category: "general", gender: "male" }
+        ];
+
+        // Function to render candidates
+        function renderCandidates(filter = 'all') {
+            const container = document.getElementById('candidatesList');
+            container.innerHTML = '';
+            
+            const filteredCandidates = candidates.filter(candidate => {
+                if (filter === 'all') return true;
+                if (filter === 'sc') return candidate.category === 'sc';
+                if (filter === 'obc') return candidate.category === 'obc';
+                if (filter === 'general') return candidate.category === 'general';
+                if (filter === 'women') return candidate.gender === 'women';
+                return true;
+            });
+            
+            filteredCandidates.forEach(candidate => {
+                const card = document.createElement('div');
+                card.className = `candidate-card reservation-${candidate.category}`;
+                
+                // Determine gender icon
+                const genderIcon = candidate.gender === 'women' ? '<i class="fas fa-female"></i>' : '<i class="fas fa-male"></i>';
+                
+                // Determine category class for styling
+                const categoryClass = candidate.category === 'sc' ? 'reservation-sc' : 
+                                     candidate.category === 'obc' ? 'reservation-obc' : 'reservation-general';
+                
+                card.innerHTML = `
+                    <div class="candidate-name">${genderIcon} ${candidate.name}</div>
+                    <div class="candidate-division">${candidate.division}</div>
+                    <div class="candidate-reservation">${candidate.reservation}</div>
+                    ${candidate.phone ? `<div class="candidate-contact"><i class="fas fa-phone"></i> ${candidate.phone}</div>` : '<div class="candidate-contact"><i class="fas fa-phone"></i> Contact not available</div>'}
+                    <div class="candidate-id">Candidate ID: YSP/${candidate.division.substring(0,3).toUpperCase()}/${candidate.id}</div>
+                `;
+                
+                container.appendChild(card);
+            });
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-filter') === filter) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Add event listeners to filter buttons
+        function initFilters() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    renderCandidates(filter);
+                });
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCandidates('all');
+            initFilters();
+        });
+    </script>
+</body>
+</html>
