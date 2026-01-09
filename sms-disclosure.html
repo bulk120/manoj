@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Communication Disclosure - RRPANA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1e40af;
+            --secondary: #dc2626;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --msme-green: #10b981;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation Styles */
+        .main-nav {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* SMS Disclosure Page Styles */
+        .sms-disclosure-page {
+            min-height: calc(100vh - 200px);
+            padding: 3rem 0;
+        }
+        
+        .sms-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .sms-badge {
+            background-color: var(--msme-green);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sms-title {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .sms-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sms-content {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+        }
+        
+        .sms-section {
+            margin-bottom: 2.5rem;
+        }
+        
+        .sms-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: var(--msme-green);
+        }
+        
+        .sms-text {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .sms-text strong {
+            color: var(--primary);
+        }
+        
+        .purpose-list {
+            list-style-type: none;
+            margin: 1.5rem 0;
+            padding-left: 0;
+        }
+        
+        .purpose-list li {
+            padding: 10px 0;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .purpose-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 25px;
+            height: 25px;
+            background-color: var(--msme-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .entity-details-box {
+            background-color: #f0f9ff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .entity-detail-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+        
+        .entity-detail-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .entity-label {
+            font-weight: bold;
+            min-width: 200px;
+            color: var(--dark);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .entity-label i {
+            color: var(--primary);
+        }
+        
+        .entity-value {
+            font-size: 1.1rem;
+            color: var(--dark);
+            flex: 1;
+        }
+        
+        .highlight-box {
+            background-color: #fffbeb;
+            border: 1px solid #fcd34d;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .highlight-box h4 {
+            color: #d97706;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .copyright {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .entity-footer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .entity-tag {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .powered-by {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .sms-title {
+                font-size: 2rem;
+            }
+            
+            .sms-content {
+                padding: 2rem;
+            }
+            
+            .entity-detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .entity-label {
+                min-width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .sms-title {
+                font-size: 1.8rem;
+            }
+            
+            .sms-content {
+                padding: 1.5rem;
+            }
+            
+            .entity-details-box {
+                padding: 1.5rem;
+            }
+            
+            .entity-footer {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container nav-content">
+            <a href="index.html" class="logo-nav">
+                <i class="fas fa-user-tie"></i>
+                <span>MANOJ VITHHALRAO DHAWALE</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="index.html#profile"><i class="fas fa-user"></i> Profile</a>
+                <a href="index.html#msme"><i class="fas fa-certificate"></i> MSME Registration</a>
+                <a href="index.html#declaration"><i class="fas fa-file-signature"></i> Declaration</a>
+                <a href="index.html#candidates"><i class="fas fa-users"></i> Candidates</a>
+                <a href="sms-disclosure.html" class="active"><i class="fas fa-sms"></i> SMS Disclosure</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SMS Disclosure Page -->
+    <main class="sms-disclosure-page">
+        <div class="container">
+            <div class="sms-header">
+                <div class="sms-badge">
+                    <i class="fas fa-sms"></i> SMS COMMUNICATION DISCLOSURE
+                </div>
+                <h1 class="sms-title">SMS Communication – RRPANA</h1>
+                <p class="sms-subtitle">Official disclosure of SMS communication practices and entity details for DLT compliance</p>
+            </div>
+            
+            <div class="sms-content">
+                <div class="sms-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-info-circle"></i> SMS Communication Disclosure
+                    </h2>
+                    
+                    <p class="sms-text">
+                        This website is owned and managed by <strong>Mr. Manoj Vithalrao Dhawale (MSME)</strong>.
+                    </p>
+                    
+                    <p class="sms-text">
+                        SMS messages sent using the <strong>Sender ID: RRPANA</strong> are issued by <strong>Manoj Vithalrao Dhawale</strong> for official and informational purposes only. These messages are sent to registered candidates (approximately 40) for purposes such as:
+                    </p>
+                    
+                    <ul class="purpose-list">
+                        <li>Application status updates</li>
+                        <li>Candidate identification information</li>
+                        <li>Notification of next steps</li>
+                    </ul>
+                    
+                    <p class="sms-text">
+                        All recipients have voluntarily shared their mobile numbers and have provided consent to receive such service-related communication. No promotional or marketing messages are sent using this sender ID.
+                    </p>
+                </div>
+                
+                <div class="sms-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-building"></i> Entity Details
+                    </h2>
+                    
+                    <div class="entity-details-box">
+                        <div class="entity-detail-item">
+                            <div class="entity-label">
+                                <i class="fas fa-user"></i> Entity Name:
+                            </div>
+                            <div class="entity-value">
+                                <strong>Manoj Vithalrao Dhawale</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="entity-detail-item">
+                            <div class="entity-label">
+                                <i class="fas fa-certificate"></i> Entity Type:
+                            </div>
+                            <div class="entity-value">
+                                <strong>MSME</strong> (UDYAM-MH-03-0031426)
+                            </div>
+                        </div>
+                        
+                        <div class="entity-detail-item">
+                            <div class="entity-label">
+                                <i class="fas fa-id-card"></i> Sender ID:
+                            </div>
+                            <div class="entity-value">
+                                <strong>RRPANA</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="entity-detail-item">
+                            <div class="entity-label">
+                                <i class="fas fa-globe"></i> Website:
+                            </div>
+                            <div class="entity-value">
+                                <strong>https://manojvithhalraodhawale.online</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="entity-detail-item">
+                            <div class="entity-label">
+                                <i class="fas fa-phone"></i> Contact Number:
+                            </div>
+                            <div class="entity-value">
+                                <strong>7756872239</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="entity-detail-item">
+                            <div class="entity-label">
+                                <i class="fas fa-envelope"></i> Email Address:
+                            </div>
+                            <div class="entity-value">
+                                <strong>manojdhawale16@gmail.com</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="entity-detail-item">
+                            <div class="entity-label">
+                                <i class="fas fa-map-marker-alt"></i> Address:
+                            </div>
+                            <div class="entity-value">
+                                <strong>SHOP NO 6, ATHAWADI BAZAR, NAVI VASTI BADNERA, AMRAVATI - 444701</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4><i class="fas fa-exclamation-triangle"></i> Important Notice</h4>
+                    <p>
+                        This disclosure is provided in compliance with DLT (Distributed Ledger Technology) regulations for SMS template approval. All communications are sent strictly for official purposes to consenting recipients who have voluntarily provided their contact information.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="copyright">
+                <p>&copy; 2023 MANOJ VITHHALRAO DHAWALE (RRPANA Entity). All Rights Reserved.</p>
+            </div>
+            
+            <div class="entity-footer">
+                <div class="entity-tag">
+                    <i class="fas fa-user"></i> MANOJ VITHHALRAO DHAWALE
+                </div>
+                <div class="entity-tag">
+                    <i class="fas fa-building"></i> RRPANA Entity
+                </div>
+                <div class="entity-tag" style="background-color: var(--msme-green);">
+                    <i class="fas fa-certificate"></i> MSME Registered
+                </div>
+            </div>
+            
+            <div class="powered-by">
+                <p>Powered by <strong>MANOJ VITHHALRAO DHAWALE / RRPANA</strong> | MSME UDYAM Registration: <strong>UDYAM-MH-03-0031426</strong></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-content') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+            
+            // Close menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
