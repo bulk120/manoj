@@ -684,6 +684,15 @@
         .page-content.active {
             display: block;
         }
+
+        .footer-links a[target="_blank"] {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.footer-links a[target="_blank"]:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
         
         /* Responsive */
         @media (max-width: 768px) {
@@ -1231,42 +1240,44 @@
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div class="copyright">
-                <p>&copy; 2023 MANOJ VITHHALRAO DHAWALE (RRPANA Entity). All Rights Reserved.</p>
+    <!-- Footer -->
+<footer>
+    <div class="container footer-content">
+        <div class="copyright">
+            <p>&copy; 2023 MANOJ VITHHALRAO DHAWALE (RRPANA Entity). All Rights Reserved.</p>
+        </div>
+        
+        <div class="entity-footer">
+            <div class="entity-tag">
+                <i class="fas fa-user"></i> MANOJ VITHHALRAO DHAWALE
             </div>
-            
-            <div class="entity-footer">
-                <div class="entity-tag">
-                    <i class="fas fa-user"></i> MANOJ VITHHALRAO DHAWALE
-                </div>
-                <div class="entity-tag">
-                    <i class="fas fa-building"></i> RRPANA Entity
-                </div>
-                <div class="entity-tag" style="background-color: var(--msme-green);">
-                    <i class="fas fa-certificate"></i> MSME Registered
-                </div>
+            <div class="entity-tag">
+                <i class="fas fa-building"></i> RRPANA Entity
             </div>
-            
-            <div class="service-statement">
-                <p><i class="fas fa-bullhorn"></i> Providing authorized broadcast messaging service for YSP Party as an MSME registered entity under RRPANA. Authorized communications coordinator for 40 YSP Party candidates.</p>
-            </div>
-            
-            <div class="footer-links">
-                <a href="#home" data-page="home"><i class="fas fa-home"></i> Home</a>
-                <a href="#profile" data-page="profile"><i class="fas fa-user"></i> Profile</a>
-                <a href="#msme" data-page="msme"><i class="fas fa-certificate"></i> MSME Registration</a>
-                <a href="#declaration" data-page="declaration"><i class="fas fa-file-signature"></i> Declaration</a>
-                <a href="#candidates" data-page="candidates"><i class="fas fa-users"></i> Candidates</a>
-                <a href="#sms-disclosure" data-page="sms-disclosure"><i class="fas fa-sms"></i> SMS Disclosure</a>
-            </div>
-            
-            <div class="powered-by">
-                <p>Powered by <strong>MANOJ VITHHALRAO DHAWALE / RRPANA</strong> | MSME UDYAM Registration: <strong>UDYAM-MH-03-0031426</strong></p>
+            <div class="entity-tag" style="background-color: var(--msme-green);">
+                <i class="fas fa-certificate"></i> MSME Registered
             </div>
         </div>
-    </footer>
+        
+        <div class="service-statement">
+            <p><i class="fas fa-bullhorn"></i> Providing authorized broadcast messaging service for YSP Party as an MSME registered entity under RRPANA. Authorized communications coordinator for 40 YSP Party candidates.</p>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#home" data-page="home"><i class="fas fa-home"></i> Home</a>
+            <a href="#profile" data-page="profile"><i class="fas fa-user"></i> Profile</a>
+            <a href="#msme" data-page="msme"><i class="fas fa-certificate"></i> MSME Registration</a>
+            <a href="#declaration" data-page="declaration"><i class="fas fa-file-signature"></i> Declaration</a>
+            <a href="#candidates" data-page="candidates"><i class="fas fa-users"></i> Candidates</a>
+            <a href="#sms-disclosure" data-page="sms-disclosure"><i class="fas fa-sms"></i> SMS Disclosure</a>
+            <a href="sms-disclosure.html" target="_blank"><i class="fas fa-external-link-alt"></i> SMS Disclosure (New Page)</a>
+        </div>
+        
+        <div class="powered-by">
+            <p>Powered by <strong>MANOJ VITHHALRAO DHAWALE / RRPANA</strong> | MSME UDYAM Registration: <strong>UDYAM-MH-03-0031426</strong></p>
+        </div>
+    </div>
+</footer>
 
     <script>
         // Candidate data - Combined from both sources
