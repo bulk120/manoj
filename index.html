@@ -19,6 +19,7 @@
             --light: #f8fafc;
             --dark: #0f172a;
             --gray: #64748b;
+            --msme-green: #10b981;
         }
         
         body {
@@ -31,6 +32,61 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+        
+        /* Navigation Styles */
+        .main-nav {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
         
         /* Header Styles */
@@ -98,6 +154,53 @@
             font-weight: bold;
             font-size: 0.9rem;
             display: inline-block;
+        }
+        
+        /* Home Hero Section */
+        .home-hero {
+            background: linear-gradient(rgba(30, 64, 175, 0.9), rgba(30, 58, 138, 0.9)), url('https://images.unsplash.com/photo-1551135049-8a33b2fb2f5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .home-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .home-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .home-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .home-stat {
+            text-align: center;
+        }
+        
+        .home-stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .home-stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
         }
         
         /* Entity Identity Section */
@@ -210,6 +313,144 @@
         .stat-label {
             font-size: 1rem;
             color: var(--gray);
+        }
+        
+        /* MSME Section */
+        .msme-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 900px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .msme-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--msme-green);
+        }
+        
+        .msme-badge {
+            background-color: var(--msme-green);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        
+        .msme-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .msme-detail {
+            background-color: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .msme-detail h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .msme-detail-item {
+            margin-bottom: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .msme-label {
+            font-weight: bold;
+            min-width: 200px;
+            color: var(--dark);
+        }
+        
+        /* Declaration Section */
+        .declaration-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 900px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .declaration-card {
+            background-color: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .declaration-signature {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .signature-box {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .signature-box h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        /* SMS Disclosure Page Styles */
+        .sms-disclosure-page {
+            background-color: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 900px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .disclosure-badge {
+            background-color: #10b981;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+        
+        .entity-details-box {
+            background-color: #f0f9ff;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .entity-detail-item {
+            margin-bottom: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .entity-label {
+            font-weight: bold;
+            min-width: 200px;
+            color: var(--dark);
         }
         
         /* Candidates Section */
@@ -427,8 +668,45 @@
             color: #93c5fd;
         }
         
+        .powered-by {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Page Content */
+        .page-content {
+            display: none;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
             .header-content {
                 flex-direction: column;
                 text-align: center;
@@ -468,10 +746,22 @@
             .equals-sign {
                 transform: rotate(90deg);
             }
+            
+            .home-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .home-stats {
+                gap: 1.5rem;
+            }
         }
         
         @media (max-width: 480px) {
             .candidates-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .msme-content {
                 grid-template-columns: 1fr;
             }
         }
@@ -491,138 +781,450 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo-section">
-                <div class="logo">MVD</div>
-                <div class="title">
-                    <h1>MANOJ VITHHALRAO DHAWALE (RRPANA)</h1>
-                    <p>YSP Party Member & Communications Coordinator</p>
-                </div>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container nav-content">
+            <div class="logo-nav">
+                <i class="fas fa-user-tie"></i>
+                <span>MANOJ VITHHALRAO DHAWALE</span>
             </div>
-            <div class="entity-badge">
-                <div class="ysp-badge">
-                    <i class="fas fa-handshake"></i> Serving YSP Party
-                </div>
-                <div class="rrpana-badge">
-                    <i class="fas fa-user-tag"></i> Entity: RRPANA
-                </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="active" data-page="home"><i class="fas fa-home"></i> Home</a>
+                <a href="#profile" data-page="profile"><i class="fas fa-user"></i> Profile</a>
+                <a href="#msme" data-page="msme"><i class="fas fa-certificate"></i> MSME Registration</a>
+                <a href="#declaration" data-page="declaration"><i class="fas fa-file-signature"></i> Declaration</a>
+                <a href="#candidates" data-page="candidates"><i class="fas fa-users"></i> Candidates</a>
+                <a href="/sms-disclosure" data-page="sms-disclosure"><i class="fas fa-sms"></i> SMS Disclosure</a>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Entity Identity Section -->
-    <section class="entity-identity">
-        <div class="container">
-            <h2 class="entity-title">Entity Identity</h2>
-            <div class="entity-equivalence">
-                <div class="entity-name">
-                    <h3><i class="fas fa-user"></i> Personal Name</h3>
-                    <p><strong>MANOJ VITHHALRAO DHAWALE</strong></p>
-                    <p>YSP Party Member</p>
-                </div>
-                <div class="equals-sign">=</div>
-                <div class="entity-name">
-                    <h3><i class="fas fa-building"></i> Registered Entity</h3>
-                    <p><strong>RRPANA</strong></p>
-                    <p>DLT Registered Entity</p>
+    <!-- Home Page -->
+    <section id="home" class="page-content active">
+        <div class="home-hero">
+            <div class="container">
+                <h1>MANOJ VITHHALRAO DHAWALE (RRPANA)</h1>
+                <p>Authorized Service Provider & Communications Coordinator for YSP Party Candidates</p>
+                <div class="home-stats">
+                    <div class="home-stat">
+                        <div class="home-stat-number">MSME</div>
+                        <div class="home-stat-label">Registered Entity</div>
+                    </div>
+                    <div class="home-stat">
+                        <div class="home-stat-number">40+</div>
+                        <div class="home-stat-label">Candidates Served</div>
+                    </div>
+                    <div class="home-stat">
+                        <div class="home-stat-number">RRPANA</div>
+                        <div class="home-stat-label">Official Sender ID</div>
+                    </div>
                 </div>
             </div>
-            <p style="color: var(--gray); max-width: 700px; margin: 0 auto;">
-                <i class="fas fa-info-circle"></i> For all DLT (Distributed Ledger Technology) compliance and messaging purposes, <strong>MANOJ VITHHALRAO DHAWALE</strong> and <strong>RRPANA</strong> refer to the same entity.
-            </p>
         </div>
+        
+        <!-- Entity Identity Section on Home -->
+        <section class="entity-identity">
+            <div class="container">
+                <h2 class="entity-title">Entity Identity</h2>
+                <div class="entity-equivalence">
+                    <div class="entity-name">
+                        <h3><i class="fas fa-user"></i> Personal Name</h3>
+                        <p><strong>MANOJ VITHHALRAO DHAWALE</strong></p>
+                        <p>MSME Registered Entrepreneur</p>
+                    </div>
+                    <div class="equals-sign">=</div>
+                    <div class="entity-name">
+                        <h3><i class="fas fa-building"></i> Registered Entity</h3>
+                        <p><strong>RRPANA / DHAWALE GRUH UDYOG</strong></p>
+                        <p>MSME UDYAM-MH-03-0031426</p>
+                    </div>
+                </div>
+                <p style="color: var(--gray); max-width: 700px; margin: 1rem auto 0;">
+                    <i class="fas fa-info-circle"></i> For all DLT (Distributed Ledger Technology) compliance and messaging purposes, <strong>MANOJ VITHHALRAO DHAWALE</strong> and <strong>RRPANA</strong> refer to the same entity (MSME Registered).
+                </p>
+            </div>
+        </section>
     </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="profile-image">
-                <div class="profile-placeholder">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Manoj Vithhalrao Dhawale (RRPANA)" class="profile-img">
+    <!-- Profile Page -->
+    <section id="profile" class="page-content">
+        <header>
+            <div class="container header-content">
+                <div class="logo-section">
+                    <div class="logo">MVD</div>
+                    <div class="title">
+                        <h1>MANOJ VITHHALRAO DHAWALE (RRPANA)</h1>
+                        <p>YSP Party Member & Communications Coordinator</p>
+                    </div>
+                </div>
+                <div class="entity-badge">
+                    <div class="ysp-badge">
+                        <i class="fas fa-handshake"></i> Serving YSP Party
+                    </div>
+                    <div class="rrpana-badge">
+                        <i class="fas fa-user-tag"></i> Entity: RRPANA
+                    </div>
                 </div>
             </div>
-            <div class="profile-info">
-                <h2>Manoj Vithhalrao Dhawale (RRPANA Entity)</h2>
-                <p>Dedicated member of the YSP Party serving as the primary communications coordinator for 40 party candidates. Responsible for broadcasting key messages, campaign updates, and party communications to ensure unified messaging across all divisions.</p>
+        </header>
+
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="profile-image">
+                    <div class="profile-placeholder">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Manoj Vithhalrao Dhawale (RRPANA)" class="profile-img">
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h2>Manoj Vithhalrao Dhawale (RRPANA Entity)</h2>
+                    <p>MSME Registered Entrepreneur (UDYAM-MH-03-0031426) and dedicated member of the YSP Party serving as the primary communications coordinator for 40 party candidates. Responsible for broadcasting key messages, campaign updates, and party communications to ensure unified messaging across all divisions.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-number">40</div>
+                            <div class="stat-label">Candidates</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Divisions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">MSME</div>
+                            <div class="stat-label">Registered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- MSME Registration Page -->
+    <section id="msme" class="page-content">
+        <section class="msme-section">
+            <div class="container">
+                <div class="msme-header">
+                    <div class="msme-badge">
+                        <i class="fas fa-certificate"></i> MSME REGISTERED
+                    </div>
+                    <h2>UDYAM Registration Certificate Details</h2>
+                </div>
                 
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">40</div>
-                        <div class="stat-label">Candidates</div>
+                <div class="msme-content">
+                    <div class="msme-detail">
+                        <h4><i class="fas fa-id-card"></i> Enterprise Information</h4>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">UDYAM Registration Number:</div>
+                            <div class="msme-value"><strong>UDYAM-MH-03-0031426</strong></div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Name of Enterprise:</div>
+                            <div class="msme-value">DHAWALE GRUH UDYOG</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Owner Name:</div>
+                            <div class="msme-value">SHRI MANOJ VITHHALRAO DHAWALE</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Type of Enterprise:</div>
+                            <div class="msme-value">MICRO</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Type of Organisation:</div>
+                            <div class="msme-value">Proprietary</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Date of Registration:</div>
+                            <div class="msme-value">04/10/2022</div>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Divisions</div>
+                    
+                    <div class="msme-detail">
+                        <h4><i class="fas fa-map-marker-alt"></i> Contact Information</h4>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Address:</div>
+                            <div class="msme-value">SHOP NO 6, ATHAWADI BAZAR, NAVI VASTI BADNERA, AMRAVATI</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Pin Code:</div>
+                            <div class="msme-value">444701</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Mobile:</div>
+                            <div class="msme-value">7756872239</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Email:</div>
+                            <div class="msme-value">manojdhawale16@gmail.com</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">PAN:</div>
+                            <div class="msme-value">ANIPD0061B</div>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">RRPANA</div>
-                        <div class="stat-label">Entity Name</div>
+                    
+                    <div class="msme-detail">
+                        <h4><i class="fas fa-industry"></i> Business Activities</h4>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Major Activity:</div>
+                            <div class="msme-value">Manufacturing</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Social Category:</div>
+                            <div class="msme-value">General</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Unit Names:</div>
+                            <div class="msme-value">DHAWALE GRUH UDYOG, RRPANA</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Date of Commencement:</div>
+                            <div class="msme-value">01/01/2009</div>
+                        </div>
+                        <div class="msme-detail-item">
+                            <div class="msme-label">Bank Details:</div>
+                            <div class="msme-value">STATE BANK OF INDIA (SBIN0004884) A/C: 31169160789</div>
+                        </div>
                     </div>
                 </div>
+                
+                <div style="margin-top: 2rem; padding: 1rem; background-color: #f0f9ff; border-radius: 8px; border-left: 4px solid var(--msme-green);">
+                    <p><strong>Note:</strong> RRPANA is a registered unit under MSME UDYAM Registration Number <strong>UDYAM-MH-03-0031426</strong>. For all DLT and communication purposes, MANOJ VITHHALRAO DHAWALE and RRPANA refer to the same MSME registered entity.</p>
+                </div>
             </div>
-        </div>
+        </section>
     </section>
 
-    <!-- Candidates Section -->
-    <section class="candidates-section">
-        <div class="container">
-            <h2 class="section-title">Candidate Communications Network</h2>
-            <p class="section-subtitle">
-                Manoj Vithhalrao Dhawale (RRPANA Entity) manages broadcast messaging for the following 40 YSP Party candidates across various divisions:
-            </p>
-            
-            <div class="filter-controls">
-                <button class="filter-btn active" data-filter="all">All Candidates</button>
-                <button class="filter-btn" data-filter="sc">SC Category</button>
-                <button class="filter-btn" data-filter="obc">OBC Category</button>
-                <button class="filter-btn" data-filter="general">General Category</button>
-                <button class="filter-btn" data-filter="women">Women Candidates</button>
+    <!-- Declaration Page -->
+    <section id="declaration" class="page-content">
+        <section class="declaration-section">
+            <div class="container">
+                <h2 class="section-title">Relationship Declaration Letters</h2>
+                
+                <div class="declaration-card">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Declaration 1: RRPANA Entity Authorization</h3>
+                    <p style="margin-bottom: 1rem;"><strong>To,</strong><br>DLT Scrutiny Team</p>
+                    
+                    <p style="margin-bottom: 1rem;"><strong>Subject:</strong> Relationship declaration between Entity (Header: RRPANA) and Message Content</p>
+                    
+                    <p style="margin-bottom: 1rem;">This is to declare that RRPANA is an authorized entity responsible for official communication related to YSP applicants / candidates.</p>
+                    
+                    <p style="margin-bottom: 1rem;">The SMS content submitted under header RRPANA is sent for the purpose of identification / tracking / verification of YSP candidates, as per official process.</p>
+                    
+                    <p style="margin-bottom: 1rem;">The recipients of this message are users/applicants who have voluntarily shared their mobile numbers during registration or are part of the official YSP database.</p>
+                    
+                    <p style="margin-bottom: 1rem;">Hence, RRPANA has a direct and legitimate relationship with the message content and is fully authorized to send the above communication.</p>
+                    
+                    <p style="margin-bottom: 1rem;">We request you to kindly approve the submitted SMS template.</p>
+                    
+                    <div class="declaration-signature">
+                        <div class="signature-box">
+                            <h4>Entity Details:</h4>
+                            <p><strong>Entity Name:</strong> RRPANA</p>
+                            <p><strong>Purpose:</strong> Official communication for YSP candidate identification</p>
+                            <p><strong>Contact Details:</strong> 9969011111</p>
+                        </div>
+                        <div class="signature-box">
+                            <h4>Authorized Signatory:</h4>
+                            <p><strong>Name:</strong> Ravi Rana</p>
+                            <p><strong>Designation:</strong> MLA & President YSP</p>
+                            <p style="margin-top: 20px;">_________________</p>
+                            <p>Ravi Rana<br>MLA & President YSP</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="declaration-card">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Declaration 2: Service Provider Authorization</h3>
+                    <p style="margin-bottom: 1rem;"><strong>To,</strong><br>DLT Scrutiny Team</p>
+                    
+                    <p style="margin-bottom: 1rem;"><strong>Date:</strong> 07/01/2026</p>
+                    
+                    <p style="margin-bottom: 1rem;"><strong>Subject:</strong> Relationship declaration between Entity (Header: RRPANA) and SMS Content</p>
+                    
+                    <p style="margin-bottom: 1rem;">This is to formally declare that RRPANA, represented by Mr. MANOJ VITHHALRAO DHAWALE, is an authorized service provider engaged in providing communication and support services to YSP candidates/applicants.</p>
+                    
+                    <p style="margin-bottom: 1rem;">The SMS content submitted under the header RRPANA is sent solely for official communication purposes, including identification, tracking, and information sharing related to YSP candidates.</p>
+                    
+                    <p style="margin-bottom: 1rem;">The recipients of these messages are YSP candidates who have voluntarily shared their mobile numbers during registration or have provided explicit consent for receiving service-related communication.</p>
+                    
+                    <p style="margin-bottom: 1rem;">As a service provider, RRPANA has a direct and legitimate relationship with both the recipients and the message content, and is authorized to send such communications on behalf of the YSP process.</p>
+                    
+                    <p style="margin-bottom: 1rem;">We kindly request approval of the submitted SMS template.</p>
+                    
+                    <div class="declaration-signature">
+                        <div class="signature-box">
+                            <h4>Entity Details:</h4>
+                            <p><strong>Entity Name:</strong> RRPANA / MANOJ VITHHALRAO DHAWALE</p>
+                            <p><strong>Service Role:</strong> Authorized Service Provider for YSP Candidates</p>
+                            <p><strong>Purpose of SMS:</strong> Official candidate identification / tracking communication</p>
+                        </div>
+                        <div class="signature-box">
+                            <h4>Authorized Signatory:</h4>
+                            <p><strong>Name:</strong> Mr. MANOJ VITHHALRAO DHAWALE</p>
+                            <p><strong>Designation:</strong> Service Provider / Authorized Representative</p>
+                            <p><strong>Contact:</strong> 7756872239</p>
+                            <p><strong>Email:</strong> manojdhawale563@gmail.com</p>
+                            <p style="margin-top: 20px;">_________________</p>
+                            <p>Manoj Dhawale<br>Service Provider / Authorized Representative</p>
+                        </div>
+                        <div class="signature-box">
+                            <h4>YSP Authorization:</h4>
+                            <p><strong>Name:</strong> Ravi Rana</p>
+                            <p><strong>Designation:</strong> MLA & President YSP</p>
+                            <p style="margin-top: 20px;">_________________</p>
+                            <p>Ravi Rana<br>MLA & President YSP</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="candidates-container" id="candidatesList">
-                <!-- Candidates will be loaded here by JavaScript -->
-            </div>
-        </div>
+        </section>
     </section>
 
-    <!-- DLT Compliance Section -->
-    <section class="dlt-section">
-        <div class="container">
-            <h3 class="dlt-title">DLT Template Compliance Information</h3>
-            <div class="dlt-content">
-                <div class="dlt-item">
-                    <div class="dlt-label">Primary Entity Name:</div>
-                    <div class="dlt-value"><strong>RRPANA</strong> (Registered DLT Entity)</div>
+    <!-- Candidates Page -->
+    <section id="candidates" class="page-content">
+        <section class="candidates-section">
+            <div class="container">
+                <h2 class="section-title">Candidate Communications Network</h2>
+                <p class="section-subtitle">
+                    Manoj Vithhalrao Dhawale (RRPANA Entity) manages broadcast messaging for the following 40 YSP Party candidates across various divisions:
+                </p>
+                
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Candidates</button>
+                    <button class="filter-btn" data-filter="sc">SC Category</button>
+                    <button class="filter-btn" data-filter="obc">OBC Category</button>
+                    <button class="filter-btn" data-filter="general">General Category</button>
+                    <button class="filter-btn" data-filter="women">Women Candidates</button>
                 </div>
-                <div class="dlt-item">
-                    <div class="dlt-label">Entity Representative:</div>
-                    <div class="dlt-value">MANOJ VITHHALRAO DHAWALE</div>
+                
+                <div class="candidates-container" id="candidatesList">
+                    <!-- Candidates will be loaded here by JavaScript -->
                 </div>
-                <div class="dlt-item">
-                    <div class="dlt-label">Entity Relationship:</div>
-                    <div class="dlt-value">MANOJ VITHHALRAO DHAWALE = RRPANA (Same Entity for DLT purposes)</div>
+            </div>
+        </section>
+        
+        <!-- DLT Compliance Section -->
+        <section class="dlt-section">
+            <div class="container">
+                <h3 class="dlt-title">DLT Template Compliance Information</h3>
+                <div class="dlt-content">
+                    <div class="dlt-item">
+                        <div class="dlt-label">Primary Entity Name:</div>
+                        <div class="dlt-value"><strong>RRPANA</strong> (MSME Registered Entity: UDYAM-MH-03-0031426)</div>
+                    </div>
+                    <div class="dlt-item">
+                        <div class="dlt-label">Entity Representative:</div>
+                        <div class="dlt-value">MANOJ VITHHALRAO DHAWALE</div>
+                    </div>
+                    <div class="dlt-item">
+                        <div class="dlt-label">Entity Relationship:</div>
+                        <div class="dlt-value">MANOJ VITHHALRAO DHAWALE = RRPANA (Same Entity for DLT purposes - MSME Registered)</div>
+                    </div>
+                    <div class="dlt-item">
+                        <div class="dlt-label">Registered Entity ID:</div>
+                        <div class="dlt-value">UDYAM-MH-03-0031426</div>
+                    </div>
+                    <div class="dlt-item">
+                        <div class="dlt-label">Service Relationship:</div>
+                        <div class="dlt-value">Authorized Service Provider for YSP Party Candidates (RRPANA Entity)</div>
+                    </div>
+                    <div class="dlt-item">
+                        <div class="dlt-label">DLT Template Purpose:</div>
+                        <div class="dlt-value">Broadcast messaging for 40 YSP Party candidates across multiple divisions under RRPANA entity</div>
+                    </div>
+                    <div class="dlt-item">
+                        <div class="dlt-label">Content Authority:</div>
+                        <div class="dlt-value">Authorized to send official communication messages on behalf of YSP Party candidates as RRPANA entity</div>
+                    </div>
+                    <div class="dlt-item">
+                        <div class="dlt-label">Consent Mechanism:</div>
+                        <div class="dlt-value">All recipients have provided explicit consent to receive communications from RRPANA (MANOJ VITHHALRAO DHAWALE) as YSP Party service provider</div>
+                    </div>
                 </div>
-                <div class="dlt-item">
-                    <div class="dlt-label">Registered Entity ID:</div>
-                    <div class="dlt-value">RRPANA/YSP/COMM/2023-24</div>
+            </div>
+        </section>
+    </section>
+
+    <!-- SMS Disclosure Page -->
+    <section id="sms-disclosure" class="page-content">
+        <div class="sms-disclosure-page">
+            <div class="container">
+                <div class="disclosure-badge">
+                    <i class="fas fa-sms"></i> SMS COMMUNICATION DISCLOSURE
                 </div>
-                <div class="dlt-item">
-                    <div class="dlt-label">Service Relationship:</div>
-                    <div class="dlt-value">YSP Party Member & Communications Coordinator (RRPANA Entity)</div>
+                
+                <h1 style="color: var(--primary); margin-bottom: 1.5rem;">SMS Communication Disclosure</h1>
+                
+                <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">
+                    This website is owned and managed by Mr. Manoj Vithalrao Dhawale, an MSME-registered entity.
+                </p>
+                
+                <p style="margin-bottom: 1.5rem;">
+                    SMS messages sent using Sender ID <strong>RRPANA</strong> are issued by Manoj Vithalrao Dhawale for official and informational purposes only.
+                </p>
+                
+                <p style="margin-bottom: 1.5rem;">
+                    These SMS communications are sent to registered candidates (approximately 40) for purposes such as application status updates, candidate identification, verification, and related official notifications.
+                </p>
+                
+                <p style="margin-bottom: 1.5rem;">
+                    All recipients have voluntarily shared their mobile numbers and have provided consent to receive such service-related communication.
+                </p>
+                
+                <p style="margin-bottom: 2rem;">
+                    No promotional or marketing messages are sent using this sender ID.
+                </p>
+                
+                <div class="entity-details-box">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">
+                        <i class="fas fa-info-circle"></i> Entity Details Section (MANDATORY)
+                    </h3>
+                    
+                    <div class="entity-detail-item">
+                        <div class="entity-label">Entity Name:</div>
+                        <div class="entity-value">Manoj Vithalrao Dhawale</div>
+                    </div>
+                    
+                    <div class="entity-detail-item">
+                        <div class="entity-label">Entity Type:</div>
+                        <div class="entity-value">MSME (UDYAM-MH-03-0031426)</div>
+                    </div>
+                    
+                    <div class="entity-detail-item">
+                        <div class="entity-label">Sender ID:</div>
+                        <div class="entity-value">RRPANA</div>
+                    </div>
+                    
+                    <div class="entity-detail-item">
+                        <div class="entity-label">MSME Registration:</div>
+                        <div class="entity-value">UDYAM-MH-03-0031426</div>
+                    </div>
+                    
+                    <div class="entity-detail-item">
+                        <div class="entity-label">Purpose of SMS:</div>
+                        <div class="entity-value">Candidate / Applicant Informational Communication</div>
+                    </div>
+                    
+                    <div class="entity-detail-item">
+                        <div class="entity-label">Website:</div>
+                        <div class="entity-value">https://manojvithhalraodhawale.online</div>
+                    </div>
+                    
+                    <div class="entity-detail-item">
+                        <div class="entity-label">Contact:</div>
+                        <div class="entity-value">7756872239 | manojdhawale16@gmail.com</div>
+                    </div>
                 </div>
-                <div class="dlt-item">
-                    <div class="dlt-label">DLT Template Purpose:</div>
-                    <div class="dlt-value">Broadcast messaging for 40 YSP Party candidates across multiple divisions under RRPANA entity</div>
-                </div>
-                <div class="dlt-item">
-                    <div class="dlt-label">Content Authority:</div>
-                    <div class="dlt-value">Authorized to send political, campaign, and party service messages on behalf of YSP Party candidates as RRPANA entity</div>
-                </div>
-                <div class="dlt-item">
-                    <div class="dlt-label">Consent Mechanism:</div>
-                    <div class="dlt-value">All recipients have provided explicit consent to receive communications from RRPANA (MANOJ VITHHALRAO DHAWALE) as YSP Party representative</div>
+                
+                <div style="margin-top: 2rem; padding: 1rem; background-color: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <p style="color: var(--gray); font-size: 0.9rem;">
+                        <i class="fas fa-exclamation-triangle"></i> <strong>Disclaimer:</strong> This disclosure is provided in compliance with DLT regulations. All communications are sent for official purposes only to consenting recipients.
+                    </p>
                 </div>
             </div>
         </div>
@@ -642,17 +1244,26 @@
                 <div class="entity-tag">
                     <i class="fas fa-building"></i> RRPANA Entity
                 </div>
+                <div class="entity-tag" style="background-color: var(--msme-green);">
+                    <i class="fas fa-certificate"></i> MSME Registered
+                </div>
             </div>
             
             <div class="service-statement">
-                <p><i class="fas fa-bullhorn"></i> Providing broadcast messaging service for YSP Party as an official party member under RRPANA entity. Authorized communications coordinator for 40 YSP Party candidates.</p>
+                <p><i class="fas fa-bullhorn"></i> Providing authorized broadcast messaging service for YSP Party as an MSME registered entity under RRPANA. Authorized communications coordinator for 40 YSP Party candidates.</p>
             </div>
             
             <div class="footer-links">
-                <a href="#"><i class="fas fa-envelope"></i> Contact</a>
-                <a href="#"><i class="fas fa-user-shield"></i> DLT Compliance</a>
-                <a href="#"><i class="fas fa-info-circle"></i> Entity Details</a>
-                <a href="#"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                <a href="#home" data-page="home"><i class="fas fa-home"></i> Home</a>
+                <a href="#profile" data-page="profile"><i class="fas fa-user"></i> Profile</a>
+                <a href="#msme" data-page="msme"><i class="fas fa-certificate"></i> MSME Registration</a>
+                <a href="#declaration" data-page="declaration"><i class="fas fa-file-signature"></i> Declaration</a>
+                <a href="#candidates" data-page="candidates"><i class="fas fa-users"></i> Candidates</a>
+                <a href="#sms-disclosure" data-page="sms-disclosure"><i class="fas fa-sms"></i> SMS Disclosure</a>
+            </div>
+            
+            <div class="powered-by">
+                <p>Powered by <strong>MANOJ VITHHALRAO DHAWALE / RRPANA</strong> | MSME UDYAM Registration: <strong>UDYAM-MH-03-0031426</strong></p>
             </div>
         </div>
     </footer>
@@ -708,6 +1319,8 @@
         // Function to render candidates
         function renderCandidates(filter = 'all') {
             const container = document.getElementById('candidatesList');
+            if (!container) return;
+            
             container.innerHTML = '';
             
             const filteredCandidates = candidates.filter(candidate => {
@@ -756,10 +1369,82 @@
             });
         }
 
+        // Page navigation functionality
+        function initPageNavigation() {
+            const navLinks = document.querySelectorAll('.nav-links a, .footer-links a');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinksContainer = document.getElementById('navLinks');
+            
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinksContainer.classList.toggle('active');
+            });
+            
+            // Page switching
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page') || this.getAttribute('href').substring(1);
+                    
+                    // Hide all pages
+                    document.querySelectorAll('.page-content').forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    
+                    // Show selected page
+                    const targetPage = document.getElementById(pageId);
+                    if (targetPage) {
+                        targetPage.classList.add('active');
+                    }
+                    
+                    // Update active nav link
+                    navLinks.forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Close mobile menu if open
+                    navLinksContainer.classList.remove('active');
+                    
+                    // Render candidates if on candidates page
+                    if (pageId === 'candidates') {
+                        renderCandidates('all');
+                    }
+                    
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+            
+            // Handle direct URL access
+            const currentHash = window.location.hash.substring(1) || 'home';
+            const currentPage = document.getElementById(currentHash);
+            if (currentPage) {
+                document.querySelectorAll('.page-content').forEach(page => {
+                    page.classList.remove('active');
+                });
+                currentPage.classList.add('active');
+                
+                // Update active nav link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkPage = link.getAttribute('data-page') || link.getAttribute('href').substring(1);
+                    if (linkPage === currentHash) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        }
+
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            renderCandidates('all');
+            initPageNavigation();
             initFilters();
+            
+            // Render candidates if on candidates page initially
+            if (document.getElementById('candidatesList')) {
+                renderCandidates('all');
+            }
         });
     </script>
 </body>
